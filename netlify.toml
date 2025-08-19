@@ -1,0 +1,11 @@
+# Netlify config to proxy frontend calls to your Codespaces backend
+[build]
+  # We are not building anything (no Node/React build), just publish static files
+  publish = "."
+
+# Proxy any call like /api/... to your backend running in Codespaces (port 8080)
+[[redirects]]
+  from = "/api/*"
+  to = "https://solid-space-sniffle-5jpvjjp59xr2pggg-8080.app.github.dev/:splat"
+  status = 200
+  force = true
